@@ -3,6 +3,14 @@
 
 using namespace std;
 
+template <typename T>
+void print_vec(vector<T> &v) {
+  cout << '[' << ' ';
+  for (auto i : v)
+    cout << i << ' ';
+  cout << ']' << '\n';
+}
+
 class Solution {
 public:
 };
