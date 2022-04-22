@@ -12,22 +12,22 @@ template <typename T> void print_vec(vector<T> &v) {
 
 class Solution {
 private:
-  void solve(vector<vector<int>> &ans, vector<int> comb, vector<int> nums, int start) {
-    if ((int)comb.size() == (int)nums.size()) {
-      ans.push_back(comb);
+  void solve(vector<vector<int>> &ans, vector<int> nums, int start) {
+    if (start == (int)nums.size() - 1) {
+      ans.push_back(nums);
       return;
     }
-    for (int i = start; i < (int)nums.size() - 1; ++i) {
-      swap(nums[i], nums[i+1]);
-      solve(ans, comb, nums, i);
-      swap(nums[i], nums[i+1]);
+    for (int i = start; i < (int)nums.size(); ++i) {
+      swap(nums[start], nums[i]);
+      solve(ans, nums, start + 1);
+      swap(nums[start], nums[i]);
     }
   }
+
 public:
   vector<vector<int>> permute(vector<int> &nums) {
     vector<vector<int>> ans;
-    vector<int> comb;
-    solve(ans, comb, nums, 0);
+    solve(ans, nums, 0);
     return ans;
   }
 };
@@ -37,7 +37,7 @@ int main() {
 
   Solution s;
   auto ans = s.permute(v);
-  for (auto v: ans) {
+  for (auto v : ans) {
     print_vec(v);
   }
   return 0;
