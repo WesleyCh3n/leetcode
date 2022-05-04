@@ -30,7 +30,7 @@ class Solution {
 private:
 public:
   void nextPermutation(vector<int> &nums) {
-    int n = (int)nums.size() - 1, i;
+    int n = (int)nums.size(), i;
     for (i = n - 2; i >= 0; i--) {
       if (nums[i] < nums[i+1]) {
         break;
