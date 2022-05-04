@@ -12,7 +12,13 @@ impl Solution {
     }
 }
 
-fn main() {
-    let v = vec![1,1,1,3,3,4,3,2,4,2];
-    println!("{}", Solution::contains_duplicate(v));
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn contains_duplicate_test() {
+        assert_eq!(Solution::contains_duplicate(vec![1, 2, 3, 4]), false);
+        assert_eq!(Solution::contains_duplicate(vec![1, 1, 3, 4]), true);
+    }
 }
