@@ -15,28 +15,36 @@ template <typename T> void print_vec(vector<T> &v) {
 // 1, 3, 4, 2 -> 1, 4, 2, 3
 // 1, 4, 3, 2 -> 2, 1, 3, 4
 // 4, 3, 2, 1 -> 1, 2, 3, 4
-// 1, 5, 1
+// 1, 5, 1 -> 5, 1, 1
+// 5,4,7,5,3,2 -> 5,5,2,3,4,7
+
+/*
+1. Find the largest index k such that nums[k] < nums[k + 1]. If no such index,
+   just reverse
+2. Find the largest index l > k such that nums[k] < nums[l]
+3. Swap nums[k] and nums[l]
+4. Reverse the sub-array nums[k + 1:]
+*/
 
 class Solution {
 private:
 public:
   void nextPermutation(vector<int> &nums) {
-    for (int i = (int)nums.size() - 1; i >= 0; --i) {
-      if (i == 0) {
-        reverse(nums.begin(), nums.end());
-        return;
+    int n = (int)nums.size() - 1, i;
+    for (i = n - 2; i >= 0; i--) {
+      if (nums[i] < nums[i+1]) {
+        break;
       }
-      if (nums[i] > nums[i - 1]) {
-        if (nums[i - 1] > nums[(int)nums.size() - 1]) {
-          swap(nums[i - 1], nums[i]);
-          sort(nums.begin() + i, nums.end());
-        } else if (nums[i - 1] < nums[(int)nums.size() - 1]) {
-          swap(nums[i - 1], nums[(int)nums.size() - 1]);
-          sort(nums.begin() + i, nums.end());
-        } else {
-          swap(nums[i - 1], nums[i]);
+    }
+    if (i < 0) {
+      reverse(nums.begin(), nums.end());
+    } else {
+      for (int j = n - 1; j > i; j--) {
+        if (nums[i] < nums[j]) {
+          swap(nums[i], nums[j]);
+          reverse(nums.begin() + i + 1, nums.end());
+          break;
         }
-        return;
       }
     }
   }
