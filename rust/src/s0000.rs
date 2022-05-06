@@ -11,7 +11,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn contains_duplicate_test() {
+    fn test() {
         assert_eq!(Solution::foo(), true);
     }
 }

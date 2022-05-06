@@ -1,5 +1,5 @@
 CC = g++
-Q = @
+Q =
 
 CFLAGS = -std=c++14
 CFLAGS += -Wall -Wextra -Werror -pedantic
