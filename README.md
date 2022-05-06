@@ -1,5 +1,19 @@
 # LeetCode
 
+## Running
+
+### C++
+
+```sh
+make T=<cc file>
+```
+
+### Rust
+
+```sh
+cargo test <question>
+```
+
 ## Problem
 
 | Number |              title              | Difficulty | C++ | Rust |
