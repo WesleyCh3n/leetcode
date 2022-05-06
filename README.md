@@ -38,3 +38,4 @@ cargo test <question>
 |  0226  |       Invert Binary Tree        |     E      | ✅  |  -   |
 |  0242  |          Valid Anagram          |     E      | ✅  |  -   |
 |  0704  |          Binary Search          |     E      | ✅  |  -   |
+|  0773  |           Flood Fill            |     E      | ✅  |  -   |
