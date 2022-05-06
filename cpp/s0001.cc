@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unordered_map>
 #include <vector>
 
 using namespace std;
@@ -14,6 +15,20 @@ public:
           v[1] = j;
           return v;
         }
+      }
+    }
+    return v;
+  }
+  vector<int> twoSum_map(vector<int> &nums, int target) {
+    std::vector<int> v = {0,0};
+    std::unordered_map<int, int> t;
+    for (int i = 0; i < (int)nums.size(); ++i) {
+      if (t.count(target - nums[i])) {
+        v[0] = i;
+        v[1] = t[target - nums[i]];
+        return v;
+      } else {
+        t[nums[i]] = i;
       }
     }
     return v;

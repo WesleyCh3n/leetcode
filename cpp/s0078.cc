@@ -14,6 +14,21 @@ class Solution {
 private:
   void solve(vector<vector<int>> &ans, vector<int> comb, vector<int> nums,
              int size, int index) {
+    if (size == 0) {
+      ans.push_back(comb);
+      return;
+    }
+    for (int i = index; i < (int)nums.size(); ++i) {
+      // don't push current item
+      solve(ans, comb, nums, size - 1, i + 1);
+
+      // push current item
+      comb.push_back(nums[i]);
+      solve(ans, comb, nums, size - 1, i + 1);
+    }
+  }
+  void solve_2(vector<vector<int>> &ans, vector<int> comb, vector<int> nums,
+             int size, int index) {
     ans.push_back(comb);
     if (size == 0) {
       return;

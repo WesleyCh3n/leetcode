@@ -17,6 +17,26 @@ public:
     }
     return max_value;
   }
+  int maxSubArray_on(vector<int> &nums) {
+    int max_val = nums[0];
+    int sum = 0;
+    for (int i = 0; i < (int)nums.size(); i++) {
+      sum += nums[i];
+      max_val = max(sum, max_val);
+      if (sum < 0)
+        sum = 0;
+    }
+    return max_val;
+  }
+  int maxSubArray_on2(vector<int> &nums) {
+    int sum = nums[0];
+    int max_val = nums[0];
+    for (int i = 1; i < (int)nums.size(); ++i) {
+      sum = max(nums[i], sum + nums[i]);
+      max_val = max(max_val, sum);
+    }
+    return max_val;
+  }
 };
 
 int main() {
