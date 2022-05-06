@@ -32,5 +32,9 @@ cargo test <question>
 |  0088  |                                 |            | ✅  |  -   |
 |  0090  |                                 |            | ✅  |  -   |
 |  0121  | Best Time to Buy and Sell Stock |     E      | ✅  |  -   |
+|  0125  |        Valid Palindrome         |     E      | ✅  |  -   |
 |  0216  |                                 |            | ✅  |  -   |
 |  0217  |                                 |            | ✅  |  ✅  |
+|  0226  |       Invert Binary Tree        |     E      | ✅  |  -   |
+|  0242  |          Valid Anagram          |     E      | ✅  |  -   |
+|  0704  |          Binary Search          |     E      | ✅  |  -   |
