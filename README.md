@@ -27,6 +27,7 @@ cargo test <question>
 |  0046  |                                                |            | ✅  |  -   |
 |  0047  |                                                |            | ✅  |  -   |
 |  0053  |                                                |            | ✅  |  ✅  |
+|  0070  |                Climbing Stairs                 |     E      | ✅  |  -   |
 |  0077  |                                                |            | ✅  |  -   |
 |  0078  |                                                |            | ✅  |  -   |
 |  0088  |                                                |            | ✅  |  -   |
@@ -41,5 +42,8 @@ cargo test <question>
 |  0232  |          Implement Queue using Stacks          |     E      | ✅  |  -   |
 |  0235  | Lowest Common Ancestor of a Binary Search Tree |     E      | ✅  |  -   |
 |  0242  |                 Valid Anagram                  |     E      | ✅  |  -   |
+|  0278  |               First Bad Version                |     E      | ✅  |  -   |
+|  0383  |                  Ransom Note                   |     E      | ✅  |  -   |
+|  0409  |               Longest Palindrome               |     E      | ✅  |  -   |
 |  0704  |                 Binary Search                  |     E      | ✅  |  -   |
 |  0773  |                   Flood Fill                   |     E      | ✅  |  -   |
