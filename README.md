@@ -36,6 +36,7 @@ cargo test <question>
 |  0121  |        Best Time to Buy and Sell Stock         |     E      | ✅  |  -   |
 |  0125  |                Valid Palindrome                |     E      | ✅  |  -   |
 |  0141  |               Linked List Cycle                |     E      | ✅  |  -   |
+|  0155  |                   Min Stack                    |     E      | ✅  |  -   |
 |  0216  |                                                |            | ✅  |  -   |
 |  0217  |                                                |            | ✅  |  ✅  |
 |  0226  |               Invert Binary Tree               |     E      | ✅  |  -   |
