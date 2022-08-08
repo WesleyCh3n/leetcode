@@ -2,7 +2,7 @@ pub struct Solution {}
 
 impl Solution {
     pub fn foo() -> bool{
-
+        true
     }
 }
 
