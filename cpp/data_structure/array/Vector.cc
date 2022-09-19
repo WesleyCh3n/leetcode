@@ -13,6 +13,15 @@ Vector::Vector(int capacity) {
 
 Vector::Vector() { data_ = std::unique_ptr<int[]>(new int[this->capacity_]); };
 
+Vector::Vector(Vector &old_v) {
+  this->data_ = std::unique_ptr<int[]>(new int[old_v.capacity_]);
+  this->capacity_ = old_v.capacity_;
+  this->size_ = old_v.size_;
+  for (int i = 0; i < old_v.size_; i++) {
+    this->data_[i] = old_v[i];
+  }
+}
+
 Vector::~Vector(){};
 
 int &Vector::operator[](int index) {
@@ -46,6 +55,28 @@ std::ostream &operator<<(std::ostream &os, Vector &v) {
   return os;
 }
 
+Vector Vector::operator+(const Vector &other) {
+  if (this->size_ != other.size_) {
+    std::cout << "[Error] cannot add different length\n";
+    exit(EXIT_FAILURE);
+  }
+  Vector tmp(*this);
+  for (int i = 0; i < this->size_; i++) {
+    tmp[i] += other.data_[i];
+  }
+  return tmp;
+};
+
+Vector &Vector::operator=(const Vector &other) {
+  if (this != &other) {
+    this->data_.reset(new int[other.capacity_]);
+    this->capacity_ = other.capacity_;
+    this->size_ = other.size_;
+    std::copy(&other.data_[0], &other.data_[0] + other.size_, &this->data_[0]);
+  }
+  return *this;
+};
+
 void Vector::resizeSize(int new_size) {
   if (new_size == this->capacity_) {
     // inscrease capacity
@@ -54,7 +85,7 @@ void Vector::resizeSize(int new_size) {
     for (int i = 0; i < this->size_; i++) {
       new_data[i] = this->data_[i];
     }
-    this->data_ = std::move(new_data); // TODO: understand this behavior
+    this->data_ = std::move(new_data);
   } else if (new_size < this->capacity_ / GrowFactor) {
     if (this->capacity_ / GrowFactor > MinCapcity) {
       this->capacity_ = this->capacity_ / GrowFactor;

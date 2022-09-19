@@ -8,13 +8,14 @@ class Vector {
 public:
   Vector();
   Vector(int capacity);
+  Vector(Vector &v1); // NOTE: copy constructor
   ~Vector();
 
   int &operator[](int index);
   int &at(int index);
   friend std::ostream &operator<<(std::ostream &os, Vector &v);
-  // TODO: impl operator+ overload
-  // friend Vector operator+(const Vector &v1);
+  Vector operator+(const Vector &other);
+  Vector &operator=(const Vector &other);
 
   int size();
   bool is_empty();

@@ -28,5 +28,18 @@ int main() {
   std::cout << v << '\n';
   std::cout << v.find(2) << '\n';
 
+  Vector v1;
+  v1.push(1);
+  v1.push(2);
+  v1.push(3);
+  Vector v2;
+  v2.push(2);
+  v2.push(3);
+  v2.push(4);
+  Vector v3 = (v1 + v2);
+  // v3 = v1 + v2;
+  std::cout << v1 << '\n';
+  std::cout << v2 << '\n';
+  std::cout << v3 << '\n';
   return 0;
 }
