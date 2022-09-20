@@ -13,7 +13,7 @@ template <typename T> struct Node {
 template <typename T> class LinkedList {
 public:
   LinkedList();
-  ~LinkedList(){};
+  ~LinkedList();
 
   template <typename U>
   friend std::ostream &operator<<(std::ostream &os, LinkedList<U> &l);

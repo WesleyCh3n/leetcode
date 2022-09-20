@@ -15,8 +15,15 @@ std::ostream &operator<<(std::ostream &os, LinkedList<T> &l) {
   return os;
 }
 
-template <typename T> LinkedList<T>::LinkedList() : head_(nullptr) {
-  // todo
+template <typename T> LinkedList<T>::LinkedList() : head_(nullptr) {}
+template <typename T> LinkedList<T>::~LinkedList() {
+  Node<T> *ptr = head_;
+  Node<T> *tmp = nullptr;
+  while (ptr) {
+    tmp = ptr;
+    ptr = ptr->next;
+    delete tmp;
+  }
 }
 
 template <typename T> void LinkedList<T>::pushFront(T value) {
