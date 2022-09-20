@@ -96,6 +96,7 @@ template <typename T> T LinkedList<T>::getBack() {
     }
     ptr = ptr->next;
   }
+  // FIX: reach non-void function
 }
 
 template <typename T> void LinkedList<T>::insert(int index, T value) {
