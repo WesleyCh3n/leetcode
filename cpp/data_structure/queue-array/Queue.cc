@@ -2,7 +2,18 @@
 
 template <typename U> std::ostream &operator<<(std::ostream &os, Queue<U> &q) {
   // TODO:
-  std::cout << q[0];
+  os << '[';
+  int i = q.read_;
+  if (!q.empty()) {
+    do {
+      os << q.data_[i];
+      i = ++i % (q.Capacity + 1);
+      if (i != q.write_) {
+        os << ' ';
+      }
+    } while (i != q.write_);
+  }
+  os << ']';
   return os;
 }
 
@@ -14,6 +25,10 @@ template <typename T> void Queue<T>::enqueue(T value) {
     exit(EXIT_FAILURE);
   }
   data_[write_++] = value;
+
+  if ((write_ % (Capacity + 1)) == 0) {
+    write_ = 0;
+  }
 }
 
 template <typename T> T Queue<T>::dequeue() {
@@ -23,13 +38,16 @@ template <typename T> T Queue<T>::dequeue() {
   }
   T result = data_[read_];
   data_[read_++] = 0;
+  if ((read_ % (Capacity + 1)) == 0) {
+    read_ = 0;
+  }
   return result;
 }
 
 template <typename T> bool Queue<T>::empty() { return read_ == write_; }
 
 template <typename T> bool Queue<T>::full() {
-  // read_ + 1 == write_
+  // write_ + 1 == read_
   // but circular so % length
-  return (read_ + 1) % (Capacity + 1) == write_;
+  return (write_ + 1) % (Capacity + 1) == read_;
 }
