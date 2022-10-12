@@ -20,7 +20,7 @@ public:
     return v;
   }
   vector<int> twoSum_map(vector<int> &nums, int target) {
-    std::vector<int> v = {0,0};
+    std::vector<int> v = {0, 0};
     std::unordered_map<int, int> t;
     for (int i = 0; i < (int)nums.size(); ++i) {
       if (t.count(target - nums[i])) {
@@ -41,7 +41,7 @@ int main() {
   Solution s;
 
   cout << '[' << ' ';
-  for (auto i: s.twoSum(v, 9))
+  for (auto i : s.twoSum(v, 9))
     cout << i << ' ';
   cout << ']' << '\n';
 
