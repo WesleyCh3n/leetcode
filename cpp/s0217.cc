@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 using namespace std;
@@ -22,6 +23,16 @@ public:
         return true;
       }
       map[i] = true;
+    }
+    return false;
+  }
+  bool containsDuplicate_set(vector<int> &nums) {
+    std::unordered_set<int> s;
+    for (auto &i : nums) {
+      if (s.count(i) != 0) {
+        return true;
+      }
+      s.insert(i);
     }
     return false;
   }
