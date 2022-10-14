@@ -1,7 +1,7 @@
 pub struct Solution {}
 
 impl Solution {
-    pub fn foo() -> bool{
+    pub fn foo() -> bool {
         true
     }
 }
@@ -12,6 +12,6 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(Solution::foo(), true);
+        let _s = Solution {};
     }
 }
