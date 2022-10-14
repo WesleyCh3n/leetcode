@@ -1,5 +1,6 @@
 pub mod s0000;
 pub mod s0001;
+pub mod s0003;
 pub mod s0011;
 pub mod s0015;
 pub mod s0020;
@@ -17,6 +18,7 @@ pub mod s0217;
 pub mod s0238;
 pub mod s0242;
 pub mod s0347;
+pub mod s0424;
 pub mod s0659;
 
 fn main() {
