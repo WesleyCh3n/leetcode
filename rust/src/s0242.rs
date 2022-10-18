@@ -28,5 +28,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn contains_duplicate_test() {}
+    fn contains_duplicate_test() {
+        Solution {};
+    }
 }
