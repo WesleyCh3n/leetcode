@@ -3,6 +3,7 @@ pub mod s0001;
 pub mod s0003;
 pub mod s0011;
 pub mod s0015;
+pub mod s0019;
 pub mod s0020;
 pub mod s0021;
 pub mod s0026;
