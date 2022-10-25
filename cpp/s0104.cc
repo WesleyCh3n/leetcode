@@ -23,7 +23,13 @@ struct TreeNode {
 class Solution {
 public:
   int maxDepth(TreeNode *root) {
-    return root? max(maxDepth(root->left), maxDepth(root->right)) + 1: 0;
+    return root ? max(maxDepth(root->left), maxDepth(root->right)) + 1 : 0;
+  }
+  int maxDepth_II(TreeNode *root) {
+    if (root == nullptr) {
+      return 0;
+    }
+    return 1 + std::max(maxDepth(root->left), maxDepth(root->right));
   }
 };
 

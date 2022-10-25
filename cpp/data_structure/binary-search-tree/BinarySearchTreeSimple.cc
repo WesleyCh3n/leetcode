@@ -120,14 +120,25 @@ BSTNode *getMaxNode(BSTNode *node) {
   return getMaxNode(node->right);
 }
 
-bool isBST(BSTNode *node) {
-  //
-  if (node == nullptr) {
+bool isBST(BSTNode *node) { return isBetween(node, INT_MIN, INT_MAX); }
+
+bool isBetween(BSTNode *root, int minVal, int maxVal) {
+  if (root == nullptr) {
     return true;
   }
-  return (node->left ? node->left->data : INT_MIN) < node->data &&
-         node->data < (node->right ? node->right->data : INT_MAX) &&
-         isBST(node->left) && isBST(node->right);
+  std::cout << root->data << " " << minVal << " " << maxVal << '\n'
+            << "data > minval: " << (root->data > minVal) << '\n'
+            << "data < maxVal: " << (root->data > maxVal) << '\n';
+  if (root->data == INT_MIN) {
+    return root->left == nullptr && isBetween(root->right, INT_MIN + 1, maxVal);
+  }
+  if (root->data == INT_MAX) {
+    return root->right == nullptr && isBetween(root->left, minVal, INT_MAX - 1);
+  }
+
+  return root->data > minVal && root->data < maxVal &&
+         isBetween(root->left, minVal, root->data) &&
+         isBetween(root->right, root->data, maxVal);
 }
 
 BSTNode *deleteValue(BSTNode *node, int value) {

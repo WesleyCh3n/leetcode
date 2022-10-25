@@ -22,31 +22,29 @@ struct TreeNode {
 
 class Solution {
 public:
-  TreeNode *invertTree(TreeNode *root) {
-    if (root == nullptr) {
-      return nullptr;
-    }
-    auto right_tmp = invertTree(root->right);
-    root->right = invertTree(root->left);
-    root->left = right_tmp;
-    return root;
-  }
-  TreeNode *invertTree_with_swap(TreeNode *root) {
-    if (!root) {
-      return root;
-    }
-    swap(root->left, root->right);
-    invertTree(root->left);
-    invertTree(root->right);
+  bool isSubtree(TreeNode *root, TreeNode *subRoot) {
+    if (root == nullptr)
+      return false;
+    if (isSametree(root, subRoot))
+      return true;
 
-    return root;
+    return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
+  }
+
+  bool isSametree(TreeNode *p, TreeNode *q) {
+    if (p == nullptr && q == nullptr)
+      return true;
+    if (p == nullptr || q == nullptr) // one of node is not nullptr
+      return false;
+    return p->val == q->val && isSametree(p->left, q->left) &&
+           isSametree(p->right, q->right);
   }
 };
 
 int main() {
   std::vector<int> v = {};
 
-  Solution s;
+  // Solution s;
 
   return 0;
 }

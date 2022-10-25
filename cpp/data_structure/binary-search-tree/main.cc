@@ -1,4 +1,5 @@
 #include "BinarySearchTreeSimple.h"
+#include <climits>
 #include <iostream>
 
 int main() {
@@ -43,6 +44,17 @@ int main() {
   node = deleteValue(node, 10);
   printDFSPretty(node, 0);
   std::cout << std::endl;
+
+  {
+    BSTNode *node = getNewNode(2);
+    node->left = getNewNode(2);
+    std::cout << "[2, 2, 2] is bst: " << isBST(node) << '\n';
+  }
+  {
+    BSTNode *node = getNewNode(INT_MAX);
+    node->left = getNewNode(INT_MAX);
+    std::cout << "[INT_MAX, INT_MAX] is bst: " << isBST(node) << '\n';
+  }
 
   return 0;
 }

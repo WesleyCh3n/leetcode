@@ -22,24 +22,15 @@ struct TreeNode {
 
 class Solution {
 public:
-  TreeNode *invertTree(TreeNode *root) {
-    if (root == nullptr) {
-      return nullptr;
-    }
-    auto right_tmp = invertTree(root->right);
-    root->right = invertTree(root->left);
-    root->left = right_tmp;
-    return root;
-  }
-  TreeNode *invertTree_with_swap(TreeNode *root) {
-    if (!root) {
-      return root;
-    }
-    swap(root->left, root->right);
-    invertTree(root->left);
-    invertTree(root->right);
+  bool isSameTree(TreeNode *p, TreeNode *q) {
+    if (p == nullptr && q == nullptr)
+      return true;
 
-    return root;
+    if (p == nullptr || q == nullptr)
+      return false;
+
+    return p->val == q->val && isSameTree(p->left, q->left) &&
+           isSameTree(p->right, q->right);
   }
 };
 

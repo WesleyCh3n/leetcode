@@ -31,6 +31,7 @@ int getMax(BSTNode *node);
 BSTNode *getMaxNode(BSTNode *node);
 
 bool isBST(BSTNode *node);
+bool isBetween(BSTNode *root, int minVal, int maxVal);
 
 BSTNode *getSuccessor(BSTNode *node, int value);
 
