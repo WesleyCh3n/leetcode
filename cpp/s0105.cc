@@ -1,11 +1,17 @@
 #include "essential.h"
+#include <unordered_map>
 
 class Solution {
 public:
   TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
     //
     int index = 0;
-    return build(preorder, inorder, index, 0, inorder.size() - 1);
+    std::unordered_map<int, int> m;
+    for (int i = 0; i < (int)inorder.size(); i++) {
+      m[inorder[i]] = i;
+    }
+    // return build(preorder, inorder, index, 0, inorder.size() - 1);
+    return build(preorder, m, index, 0, inorder.size() - 1);
   }
   TreeNode *build(vector<int> &preorder, vector<int> &inorder, int &index,
                   int start, int end) {
@@ -25,6 +31,19 @@ public:
     root->left = build(preorder, inorder, index, start, split - 1);
     root->right = build(preorder, inorder, index, split + 1, end);
     return root;
+  }
+  TreeNode *build(vector<int> &preorder, std::unordered_map<int, int> &m,
+                  int &preIndex, int inStart, int inEnd) {
+    if (inStart > inEnd) {
+      return nullptr;
+    }
+    int pVal = preorder[preIndex];
+    int inIndex = m[pVal];
+    auto node = new TreeNode(pVal);
+    preIndex++;
+    node->left = build(preorder, m, preIndex, inStart, inIndex - 1);
+    node->right = build(preorder, m, preIndex, inIndex + 1, inEnd);
+    return node;
   }
 };
 
