@@ -100,6 +100,18 @@ void PriorityQueue::siftDown(int index) {
   }
 }
 
+void PriorityQueue::remove(int index) {
+  //
+  // swap with last node
+  // siftDown
+  // remove last node
+  //
+  swapNode(index, size_ - 1);
+  siftDown(index);
+  --size_;
+  return;
+}
+
 int PriorityQueue::getSize() { return size_; }
 
 bool PriorityQueue::isEmpty() { return size_ == 0; }

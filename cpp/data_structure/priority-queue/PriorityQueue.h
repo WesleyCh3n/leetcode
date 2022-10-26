@@ -16,6 +16,8 @@ public:
   void insert(int key, std::string value);
   PriorityQueueNode *getMax();
   PriorityQueueNode extractMax();
+  void remove(int index);
+
   int getSize();
   bool isEmpty();
 
