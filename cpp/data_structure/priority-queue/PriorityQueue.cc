@@ -45,7 +45,6 @@ void PriorityQueue::siftUp(int index) {
   // until i am not larger than my parent
   // also, if i'm the biggest one than no op to do
   //
-
   int parent = index / 2;
   while (nodes_[index].key_ > nodes_[parent].key_) {
     swapNode(index, parent);
@@ -65,11 +64,12 @@ void PriorityQueue::swapNode(const int index1, const int index2) {
 PriorityQueueNode *PriorityQueue::getMax() { return &nodes_[0]; }
 
 PriorityQueueNode PriorityQueue::extractMax() {
-  // todo
+  //
   // swap first and last node
   // siftDown the first node because it's the smallest node
   // return last node;
   // remove last node
+  //
   int last = size_ - 1;
   swapNode(0, last);
   auto nodes = nodes_[last];
@@ -85,7 +85,6 @@ void PriorityQueue::siftDown(int index) {
   // until you are larger than both of the children
   // also, if there is no more children than no op
   //
-
   while (2 * index + 1 < size_) { // left child exist
     int compared_child = 2 * index + 1;
     if (2 * index + 2 < size_) { // both children exist
