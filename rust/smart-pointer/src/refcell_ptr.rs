@@ -1,4 +1,4 @@
-use std::{cell::RefCell, rc::Rc};
+// use std::{cell::RefCell, rc::Rc};
 
 pub trait Messenger {
     fn send(&self, msg: &str);
@@ -42,7 +42,7 @@ where
 #[cfg(test)]
 mod test {
     use super::*;
-    use std::cell::RefCell;
+    use std::{cell::RefCell, rc::Rc};
 
     struct MockMessenger {
         sent_messages: RefCell<Vec<String>>,

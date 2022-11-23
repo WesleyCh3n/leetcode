@@ -38,7 +38,6 @@ pub mod s0417;
 pub mod s0424;
 pub mod s0572;
 pub mod s0659;
-pub mod smart_pointer;
 
 fn main() {
     println!("Hello rust leetcode")
