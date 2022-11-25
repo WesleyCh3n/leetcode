@@ -34,6 +34,7 @@ pub mod s0230;
 pub mod s0235;
 pub mod s0238;
 pub mod s0242;
+pub mod s0322;
 pub mod s0347;
 pub mod s0417;
 pub mod s0424;
