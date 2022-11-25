@@ -13,6 +13,7 @@ pub mod s0033;
 pub mod s0039;
 pub mod s0046;
 pub mod s0049;
+pub mod s0051;
 pub mod s0053;
 pub mod s0080;
 pub mod s0098;
