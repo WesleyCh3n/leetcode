@@ -15,6 +15,7 @@ pub mod s0046;
 pub mod s0049;
 pub mod s0051;
 pub mod s0053;
+pub mod s0070;
 pub mod s0080;
 pub mod s0098;
 pub mod s0100;
@@ -41,6 +42,7 @@ pub mod s0424;
 pub mod s0509;
 pub mod s0572;
 pub mod s0659;
+pub mod s0746;
 
 fn main() {
     println!("Hello rust leetcode")
