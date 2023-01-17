@@ -8,12 +8,13 @@ impl Solution {
         // You can either start from the step with index 0, or the step with index 1.
         //
         // Return the minimum cost to reach the top of the floor.
-        // let mut result = vec![0; cost.len() + 1];
-        // result[cost.len()]
-        std::cmp::min(
-            Solution::top_down(&cost, cost.len() - 1),
-            Solution::top_down(&cost, cost.len() - 2),
-        )
+
+        // std::cmp::min(
+        //     Solution::top_down(&cost, cost.len() - 1),
+        //     Solution::top_down(&cost, cost.len() - 2),
+        // );
+
+        Self::bottom_up(&cost)
     }
     pub fn top_down(cost: &Vec<i32>, n: usize) -> i32 {
         if n == 0 || n == 1 {
@@ -24,6 +25,16 @@ impl Solution {
                 Solution::top_down(cost, n - 1),
                 Solution::top_down(cost, n - 2),
             )
+    }
+    pub fn bottom_up(cost: &Vec<i32>) -> i32 {
+        let n = cost.len();
+        let mut dp = vec![0; n];
+        dp[0] = cost[0];
+        dp[1] = cost[1];
+        for i in 2..n {
+            dp[i] = cost[i] + std::cmp::min(dp[i - 1], dp[i - 2])
+        }
+        std::cmp::min(dp[n - 1], dp[n - 2])
     }
 }
 
