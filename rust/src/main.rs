@@ -44,6 +44,7 @@ pub mod s0417;
 pub mod s0424;
 pub mod s0509;
 pub mod s0572;
+pub mod s0647;
 pub mod s0659;
 pub mod s0746;
 
