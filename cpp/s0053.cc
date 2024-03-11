@@ -48,3 +48,39 @@ int main() {
 
   return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+  int maxSubArray(vector<int>& nums) {
+    int max_sum = nums[0];
+    int tmp_sum = 0;
+    for (const int &num: nums) {
+      if ((tmp_sum + num) > 0) {
+        tmp_sum = tmp_sum + num;
+        max_sum = max(max_sum, tmp_sum);
+      } else {
+        tmp_sum = 0;
+        max_sum = max(max_sum, num);
+      }
+    }
+    return max_sum;
+  }
+};

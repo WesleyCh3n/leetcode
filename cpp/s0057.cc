@@ -6,7 +6,7 @@ using namespace std;
 template <typename T> void print_vec(vector<T> &v) {
   cout << '[' << ' ';
   for (auto i : v)
-    cout << i << ' ';
+  cout << i << ' ';
   cout << ']' << '\n';
 }
 
@@ -17,7 +17,7 @@ struct TreeNode {
   TreeNode() : val(0), left(nullptr), right(nullptr) {}
   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
   TreeNode(int x, TreeNode *left, TreeNode *right)
-      : val(x), left(left), right(right) {}
+  : val(x), left(left), right(right) {}
 };
 
 struct ListNode {
@@ -65,3 +65,31 @@ int main() {
 
   return 0;
 }
+
+
+
+
+
+
+
+class Solution {
+public:
+  vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+    int& ns = newInterval[0], &ne = newInterval[1];
+    vector<vector<int>> result;
+    for (int i = 0; i < intervals.size(); i++) {
+      if (ne < intervals[i][0]) {
+        result.emplace_back(newInterval);
+        result.insert(result.end(), intervals.begin() + i, intervals.end());
+        return result;
+      } else if (ns > intervals[i][1]) {
+        result.emplace_back(intervals[i]);
+      } else {
+        ns = min(ns, intervals[i][0]);
+        ne = max(ne, intervals[i][1]);
+      }
+    }
+    result.emplace_back(newInterval);
+    return result;
+  }
+};
