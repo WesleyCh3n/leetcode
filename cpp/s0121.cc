@@ -8,7 +8,7 @@ using namespace std;
 template <typename T> void print_vec(vector<T> &v) {
   cout << '[' << ' ';
   for (auto i : v)
-    cout << i << ' ';
+  cout << i << ' ';
   cout << ']' << '\n';
 }
 
@@ -56,3 +56,17 @@ int main() {
 
   return 0;
 }
+
+class Solution {
+public:
+  int maxProfit(vector<int>& prices) {
+    int min_p = prices[0];
+    int max_profit = 0;
+    for(int& p : prices) {
+      min_p = min(p, min_p);
+      max_profit = max(p - min_p, max_profit);
+    }
+    return max_profit;
+  }
+};
+

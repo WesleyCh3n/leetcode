@@ -7,7 +7,7 @@ using namespace std;
 template <typename T> void print_vec(vector<T> &v) {
   cout << '[' << ' ';
   for (auto i : v)
-    cout << i << ' ';
+  cout << i << ' ';
   cout << ']' << '\n';
 }
 
@@ -44,3 +44,29 @@ int main() {
 
   return 0;
 }
+
+
+class Solution {
+public:
+  bool isPalindrome(string s) {
+    int start = 0;
+    int end = s.size() - 1;
+    while(start < end) {
+      while (!isalnum(s[start]) && start < end) {
+        start += 1;
+      }
+      while (!isalnum(s[end]) && start < end) {
+        end -= 1;
+      }
+      if (tolower(s[start]) != tolower(s[end])) {
+        return false;
+      }
+      start += 1;
+      end -= 1;
+    }
+    return true;
+  }
+  // bool is_char(char& c) {
+  //   return ('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z');
+  // }
+};
